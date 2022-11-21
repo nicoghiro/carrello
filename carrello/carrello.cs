@@ -11,6 +11,18 @@ namespace carrello
         private string id; //primary key
         private int numeroprodotti = 0;
         private prodotto[] prodotti;
+        float totale;
+        public float Totale
+        {
+            get
+            {
+                return totale;
+            }
+            set
+            {
+                totale = value;
+            }
+        }
         public string ID
         {
             get
@@ -52,13 +64,14 @@ namespace carrello
         {
             prodotti[numeroprodotti] = p;
             numeroprodotti++;
+            Totale = Totale + p.Prezzo;
         }
 
-        public prodotto rimuovi(prodotto p)
+        public prodotto  rimuovi(prodotto p)
         {
             for (int i = 0; i < numeroprodotti; i++)
             {
-                if (p == prodotti[i])
+                if (p.ID == prodotti[i].ID)
                 {
                     prodotti[i] = null;
                     return p;

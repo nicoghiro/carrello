@@ -13,7 +13,8 @@ namespace carrello
         string descrizione;
         string produttore;
         float prezzo;
-        public prodotto(int Id ,string nomed,string prodottot,string descrittorer,string prezzor) { 
+        
+        public prodotto(int Id ,string nomed,string prodottot,string descrittorer,float prezzor) { 
             ID = Id;
             Nome = nomed;
             Descrizione = descrittorer;
@@ -65,6 +66,10 @@ namespace carrello
             {
                 produttore = value;
             }
+        }
+        public string ToString()
+        {
+            return id.ToString()+" " + nome.ToString()+ " " + descrizione.ToString() + " "+ prezzo.ToString();
         }
 
     }
