@@ -8,5 +8,64 @@ namespace carrello
 {
     public class prodotto
     {
+        int id;
+        string nome;
+        string descrizione;
+        string produttore;
+        float prezzo;
+        public prodotto(int Id ,string nomed,string prodottot,string descrittorer,string prezzor) { 
+            ID = Id;
+            Nome = nomed;
+            Descrizione = descrittorer;
+            Produttore = prodottot;
+            
+
+           
+            }
+        public int ID
+        {
+            get { return id; }
+            private set { id = value; }
+        }
+        public string Nome
+        {
+            get {
+                return nome; 
+            }
+            private set { 
+                nome = value;
+            }
+        }
+        public string Descrizione
+        {
+            get {
+                return descrizione;
+            }
+            private set
+            {
+                descrizione = value;
+            }
+        }
+        public float Prezzo
+        {
+            get {
+                return prezzo; 
+            }
+            private set
+            {
+                prezzo = value;
+            }
+        }
+        public string Produttore
+        {
+            get { 
+                return produttore;
+            }
+            private set
+            {
+                produttore = value;
+            }
+        }
+
     }
 }

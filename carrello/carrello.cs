@@ -11,18 +11,43 @@ namespace carrello
         private string id; //primary key
         private int numeroprodotti = 0;
         private prodotto[] prodotti;
+        public string ID
+        {
+            get
+            {
+                return id;
+            }
+
+            private set
+            {
+                id = value;
+            }
+        }
+        public prodotto[] Prodotti
+        {
+            get 
+            { 
+                return prodotti;
+            }
+            private set
+            {
+                prodotti = value;
+            }
+        }
 
         public carrello(string id1, prodotto[] arrayp)
         {
-            id = id1;
-            prodotti = arrayp;
+            ID= id1;
+            Prodotti = arrayp;
         }
-
-        public string getId()
+        public carrello(string id1)
         {
-            return id;
+            ID = id1;
+           
         }
 
+
+       
         public void aggiungi(prodotto p)
         {
             prodotti[numeroprodotti] = p;
@@ -53,9 +78,6 @@ namespace carrello
             return array;
         }
 
-        public prodotto[] getProdotti()
-        {
-            return prodotti;
-        }
+     
     }
 }
