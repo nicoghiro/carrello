@@ -77,7 +77,7 @@ namespace carrello
 
         public prodotto  rimuovi(prodotto p)
         {
-            for (int j = 0; j < numeroprodotti+1; j++)
+            for (int j = 0; j < numeroprodotti; j++)
             {
                 if (prodotti[j]!=null && p.ID == prodotti[j].ID)
                 {
@@ -89,6 +89,8 @@ namespace carrello
                         prodotti[i] = prodotti[i + 1];
                     }
                     Array.Resize(ref prodotti, prodotti.Length - 1);
+                    numeroprodotti--;
+                    totale-=p.Prezzo;
                     return p;
                 }
             }
@@ -102,6 +104,7 @@ namespace carrello
             {
                 array[i] = prodotti[i];
                 prodotti[i] = null;
+                totale = 0;
             }
             return array;
         }

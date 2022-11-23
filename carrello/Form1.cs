@@ -92,6 +92,7 @@ namespace carrello
             disponibili1[cont1] = disponibili[indici];
             listView2.Items.Add(disponibili1[cont1].ToString());
             cont1++;
+            label9.Text = Convert.ToString(carr.Totale) + " €";
 
         }
 
@@ -110,7 +111,8 @@ namespace carrello
             Array.Resize(ref disponibili1, disponibili1.Length - 1);
             listView2.Items.RemoveAt(indici);
             cont1--;
-           
+            label9.Text = Convert.ToString(carr.Totale) + " €";
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -121,11 +123,17 @@ namespace carrello
                 carr.svuota();
                 listView2.Clear();
                 cont1 = 0;
+                label9.Text = Convert.ToString(carr.Totale)+ " €";
             }
             else if (dialogResult == DialogResult.No)
             {
 
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
