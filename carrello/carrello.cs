@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace carrello
 {
@@ -52,27 +53,33 @@ namespace carrello
             ID= id1;
             Prodotti = arrayp;
             numeroprodotti = 0;
+            totale = 0;
         }
         public carrello(string id1)
         {
             ID = id1;
+            Prodotti = new prodotto[100];
             numeroprodotti = 0;
+            totale=0;
         }
 
 
        
         public void aggiungi(prodotto p)
         {
+            if (p != null) { 
+            
             prodotti[numeroprodotti] = p;
-            numeroprodotti++;
+            numeroprodotti += 1;
             Totale = Totale + p.Prezzo;
+            }
         }
 
         public prodotto  rimuovi(prodotto p)
         {
             for (int i = 0; i < numeroprodotti; i++)
             {
-                if (p.ID == prodotti[i].ID)
+                if (prodotti[i]!=null && p.ID == prodotti[i].ID)
                 {
                     prodotti[i] = null;
                     return p;
