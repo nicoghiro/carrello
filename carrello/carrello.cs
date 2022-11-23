@@ -9,7 +9,7 @@ namespace carrello
     public class carrello
     {
         private string id; //primary key
-        private int numeroprodotti = 0;
+        private int numeroprodotti ;
         private prodotto[] prodotti;
         float totale;
         public float Totale
@@ -51,11 +51,12 @@ namespace carrello
         {
             ID= id1;
             Prodotti = arrayp;
+            numeroprodotti = 0;
         }
         public carrello(string id1)
         {
             ID = id1;
-           
+            numeroprodotti = 0;
         }
 
 
