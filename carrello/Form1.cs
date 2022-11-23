@@ -85,11 +85,14 @@ namespace carrello
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             int indici = listView1.FocusedItem.Index;
             string p = Convert.ToString(indici);
             carr.aggiungi(disponibili[indici]);
             disponibili1[cont1] = disponibili[indici];
             listView2.Items.Add(disponibili1[cont1].ToString());
+            cont1++;
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -97,13 +100,32 @@ namespace carrello
             int indici = listView2.FocusedItem.Index;
             string p = Convert.ToString(indici);
             carr.rimuovi(disponibili1[indici]);
-            disponibili1[indici] = null;
+            
+            int index = indici;
+
+            for (int i = index; i < disponibili1.Length - 1; i++)
+            {
+                disponibili1[i] = disponibili1[i + 1];
+            }
+            Array.Resize(ref disponibili1, disponibili1.Length - 1);
             listView2.Items.RemoveAt(indici);
+            cont1--;
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
+            DialogResult dialogResult = MessageBox.Show("sei sicuro di voler svuotare il carrello?", "eliminazione", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                carr.svuota();
+                listView2.Clear();
+                cont1 = 0;
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
         }
     }
 }

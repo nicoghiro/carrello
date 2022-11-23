@@ -77,11 +77,18 @@ namespace carrello
 
         public prodotto  rimuovi(prodotto p)
         {
-            for (int i = 0; i < numeroprodotti; i++)
+            for (int j = 0; j < numeroprodotti+1; j++)
             {
-                if (prodotti[i]!=null && p.ID == prodotti[i].ID)
+                if (prodotti[j]!=null && p.ID == prodotti[j].ID)
                 {
-                    prodotti[i] = null;
+                    
+                    int index = j;
+
+                    for (int i = index; i < prodotti.Length - 1; i++)
+                    {
+                        prodotti[i] = prodotti[i + 1];
+                    }
+                    Array.Resize(ref prodotti, prodotti.Length - 1);
                     return p;
                 }
             }
